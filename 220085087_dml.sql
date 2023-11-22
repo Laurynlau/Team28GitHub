@@ -47,3 +47,7 @@ SELECT * FROM products;
 -- Selecting orders for a user
 SELECT * FROM orders 
 WHERE user_id = 1;
+
+-- Populate the previous orders table
+INSERT INTO previous_orders (user_id, order_date, total_price) 
+VALUES (1, '2023-01-15 08:00:00', 120.00);
