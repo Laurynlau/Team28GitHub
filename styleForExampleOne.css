@@ -1,0 +1,38 @@
+nav {
+    
+    width: 100%;
+    height: 60px;
+    position: fixed;
+}
+
+nav ul {
+    float: right;
+    display: flex;
+    list-style: none;
+}
+
+nav ul li a {
+    color: rgb(255, 255, 255);
+    line-height: 60px;
+    padding: 12px 30px;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 7px;
+    margin-right:10px;
+}
+
+nav ul li a:hover {
+    background-color: rgb(0, 255, 255);
+}
+
+
+body {
+    background-image: url("images/sportscar.jpg");
+    background-size: cover;
+}
+
+div {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    padding: 300px;
+}
