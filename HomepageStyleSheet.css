@@ -4,57 +4,94 @@
     background-image: linear-gradient(rgba(80, 80, 113, 0.7), rgba(0,0,0,0.7)),url(sportscar.jpg);
     background-position: center;
     background-size: cover;
-    padding-left: 5%;
-    padding-right: 5%;
-    box-sizing: border-box;
+    
 }
 
 .navigation {
     height: 12%;
     display: flex;
     position: fixed;
+    
 }
 
-.navigation ul {
+.nav1 ul {
     float: none;
     display: flex;
     list-style: none;
-}
-
-.navigation ul li a {
-    line-height: 60px;
-    padding:10px;
-    border-radius: 7px;
-    margin-right:10px;
-}
-
-.logo{
-    align-items: left;
-}
-.nav1{
-    align-items: center;
-}
-
-nav{
-    flex: 1;
     text-align: center;
 }
 
-nav ul li {
-    list-style: none;
-    display:inline-block;
-    margin-left: 10px;
+.nav1 ul li a {
+    line-height: 60px;
+    padding-left: 110px;
+    padding-right: 10px;
 }
 
-nav ul li a{
+.logo{
+    position: left;
+}
+
+.nav1{
+    flex: 1;
+
+}
+
+.nav1 ul li {
+    list-style: none;
+}
+
+.nav1 ul li a{
     text-decoration: none;
     color:rgb(18, 13, 71);
     font-size: 10;
 }
 
 .navright{
-    flex: 1;
-    align-items: right;
+    height: 12%;
+    padding-right: 10px;
+    box-sizing: border-box;
+    flex: 1px;
     text-align: right;
-    margin-right: 10px;
+}
+
+.navright ul li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 20px;
+
+}
+
+.navright ul li a{
+    text-decoration: none;
+    color:rgb(18, 13, 71);
+    font-size: 10;
+}
+
+.navright ul li a{
+    line-height: 60px;
+    padding: 0.2px;
+}
+
+.disrow{
+    display: flex;
+    height: 5;
+    align-items: center;
+    text-align: center;
+}
+
+.disclaimer{
+    flex-basis: 70%;
+    margin-left: 200px;
+}
+
+.disclaimer{
+    color:rgb(185, 110, 250);
+}
+
+.disclaimer p{
+    font-size: 10px;
+}
+
+.bestseller {
+    text-align: center;
 }
