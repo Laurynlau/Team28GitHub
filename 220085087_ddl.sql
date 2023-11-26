@@ -22,7 +22,7 @@ CREATE TABLE products (
     publisher_id INT,
     developer_id INT,
     stock_quantity INT DEFAULT 0 CHECK (stock_quantity >= 0),
-    image_path VARCHAR(255),
+    image_path VARCHAR(500),
     last_updated DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (publisher_id) REFERENCES publishers(publisher_id),
     FOREIGN KEY (developer_id) REFERENCES developers(developer_id)
