@@ -30,8 +30,8 @@ VALUES
 ('Stellaris', 'Simulation game for Multiple Platforms', 10.49, 'Simulation', 'PlayStation, Xbox, PC, Nintendo Switch', 'Paradox Interactive', 'Paradox Development Studio', 100, '/path/to/stellaris_image.jpg'),
 ('Planet Zoo', 'Simulation game for Multiple Platforms', 10.49, 'Simulation', 'PlayStation, Xbox, PC, Nintendo Switch', 'Frontier Developments', 'Frontier Developments', 100, '/path/to/planetzoo_image.jpg'),
 -- Sports Games
-('FIFA 22', 'Sports game for Multiple Platforms', 29.99, 'Sports', 'PlayStation, Xbox, PC, Nintendo Switch', 'Electronic Arts', 'EA Vancouver', 100, '/path/to/fifa22_image.jpg'),
-('NBA 2K22', 'Sports game for Multiple Platforms', 22.49, 'Sports', 'PlayStation, Xbox, PC, Nintendo Switch', '2K Sports', 'Visual Concepts', 100, '/path/to/nba2k22_image.jpg'),
+('EA FC24', 'Sports game for Multiple Platforms', 29.99, 'Sports', 'PlayStation, Xbox, PC, Nintendo Switch', 'Electronic Arts', 'EA Vancouver', 100, '/path/to/fifa22_image.jpg'),
+('NBA 2K24', 'Sports game for Multiple Platforms', 22.49, 'Sports', 'PlayStation, Xbox, PC, Nintendo Switch', '2K Sports', 'Visual Concepts', 100, '/path/to/nba2k22_image.jpg'),
 ('Rocket League', 'Sports game for Multiple Platforms', 0.00, 'Sports', 'PlayStation, Xbox, PC, Nintendo Switch', 'Psyonix', 'Psyonix', 100, '/path/to/rocketleague_image.jpg'),
 ('Wii Sports', 'Sports game for Nintendo Wii', 30.99, 'Sports', 'Nintendo Wii', 'Nintendo', 'Nintendo EAD', 100, '/path/to/wiisports_image.jpg'),
 ('Mario Kart 8 Deluxe', 'Sports game for Nintendo Switch', 49.99, 'Sports', 'Nintendo Switch', 'Nintendo', 'Nintendo EAD', 100, '/path/to/mariokart8deluxe_image.jpg');
