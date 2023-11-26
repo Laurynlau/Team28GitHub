@@ -4,8 +4,9 @@ CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
-    Password VARCHAR(255) NOT NULL, -- Store hashed passwords
+    password VARCHAR(512) NOT NULL, -- Store hashed passwords
     date_joined DATETIME DEFAULT CURRENT_TIMESTAMP,
+    last_updated DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     user_role ENUM('admin', 'customer') DEFAULT 'customer'
 );
 
@@ -13,13 +14,30 @@ CREATE TABLE users (
 CREATE TABLE products (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
-    Description TEXT,
-    price DECIMAL(10, 2) NOT NULL,
+    description TEXT,
+    price DECIMAL(10, 2) CHECK (price >= 0),
     genre VARCHAR(100),
+    console_type VARCHAR(100),
     release_date DATE,
-    publisher VARCHAR(255),
-    developer VARCHAR(255),
-    stock_quantity INT DEFAULT 0
+    publisher_id INT,
+    developer_id INT,
+    stock_quantity INT DEFAULT 0 CHECK (stock_quantity >= 0),
+    image_path VARCHAR(255),
+    last_updated DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (publisher_id) REFERENCES publishers(publisher_id),
+    FOREIGN KEY (developer_id) REFERENCES developers(developer_id)
+);
+
+-- Table for publishers
+CREATE TABLE publishers (
+    publisher_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+-- Table for developers
+CREATE TABLE developers (
+    developer_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
 );
 
 -- Table for orders
