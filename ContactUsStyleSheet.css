@@ -1,0 +1,94 @@
+.background{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(80, 80, 113, 0.7), rgba(0,0,0,0.7)),url(sportscar.jpg);
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.navigation {
+    height: 12%;
+    display: flex;
+    position: fixed;
+    
+}
+
+.navigation ul li a:hover{
+    background-color: rgb(55, 62, 161);
+}
+
+.nav1 ul {
+    float: none;
+    display: flex;
+    list-style: none;
+    text-align: center;
+}
+
+.nav1 ul li a {
+    line-height: 60px;
+    padding-left: 110px;
+    padding-right: 10px;
+}
+
+.logo{
+    position: left;
+}
+
+.nav1{
+    flex: 1;
+
+}
+
+.nav1 ul li {
+    list-style: none;
+}
+
+.nav1 ul li a{
+    text-decoration: none;
+    color:rgb(18, 13, 71);
+    font-size: 10;
+}
+
+.navright{
+    height: 12%;
+    padding-right: 10px;
+    box-sizing: border-box;
+    flex: 1px;
+    text-align: right;
+}
+
+.navright ul li a:hover{
+    background-color: rgb(55, 62, 161);
+}
+
+.navright ul li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 20px;
+
+}
+
+.navright ul li a{
+    text-decoration: none;
+    color:rgb(18, 13, 71);
+    font-size: 10;
+}
+
+.navright ul li a{
+    line-height: 60px;
+    padding: 0.2px;
+}
+
+.contactuspic {
+    text-align: center;
+}
+.contactinfo p{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-basis: 20%;
+    color:rgb(185, 110, 250);
+    font-size: 17px;
+    
+}
