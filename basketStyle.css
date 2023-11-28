@@ -2,18 +2,25 @@ nav {
     width: 100%;
     height: 60px;
     top: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+
 }
 
 nav ul {
-    float: right;
     display: flex;
     list-style: none;
+}
+
+.nav-section{
+  display: flex;
 }
 
 nav ul li a {
     color: rgb(255, 255, 255);
     line-height: 60px;
-    padding: 12px 30px;
+    padding: 0 20px;
     font-size: 15px;
     text-decoration: none;
     border-radius: 7px;
@@ -24,7 +31,6 @@ nav ul li a {
 nav ul li a:hover {
     background-color: rgb(0, 255, 255);
 }
-
 
 body {
     background-image: url("sportscar.jpg");
@@ -46,7 +52,6 @@ div {
     border-radius: 25px;
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
     text-align: center;
-
 }
 
 .row-container {
