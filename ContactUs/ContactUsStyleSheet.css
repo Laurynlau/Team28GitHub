@@ -4,8 +4,9 @@
     background-image: linear-gradient(rgba(80, 80, 113, 0.7), rgba(0,0,0,0.7)),url(sportscar.jpg);
     background-position: center;
     background-size: cover;
-    background-attachment:initial;
-    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow:scroll;
 }
 
 .navigation {
@@ -97,13 +98,16 @@
 .contactinfo{
     color:rgb(185, 110, 250);
     padding-right: 10px;
+    padding-bottom: 30px;
     box-sizing: border-box;
     flex: 1px;
-    text-align: right;
+    text-align: center;
 }
 
 .contactform h1{
-    color:rgb(43, 51, 155);
+    color:rgb(154, 54, 241);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(61, 17, 70);
     padding-bottom: 5px;
     text-align: center;
 }
@@ -116,7 +120,7 @@
     border-radius: 10px;
     border-color: rgb(116, 224, 241);
     margin-bottom: 20px;
-    text-align: center;
+    text-align: left;
     
 }
 
@@ -152,6 +156,12 @@ textarea:focus-within{
     margin-bottom: 25px;
     text-align: center;
 }
+
+button:hover{
+    opacity: 80%;
+    cursor: pointer;
+}
+
 
 button:hover{
     opacity: 80%;
