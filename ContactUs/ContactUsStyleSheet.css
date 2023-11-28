@@ -4,6 +4,7 @@
     background-image: linear-gradient(rgba(80, 80, 113, 0.7), rgba(0,0,0,0.7)),url(sportscar.jpg);
     background-position: center;
     background-size: cover;
+    background-attachment:initial;
     
 }
 
@@ -103,27 +104,29 @@
 
 .contactform h1{
     color:rgb(43, 51, 155);
-    padding-bottom: 40px;
+    padding-bottom: 5px;
     text-align: center;
 }
 
 .contactform input{
     background-color: rgb(90, 89, 96);
     width: 50%;
-    margin-left: 12%;
+    margin-left: 24%;
     padding: 16px 16px;
     border-radius: 10px;
     border-color: rgb(116, 224, 241);
     margin-bottom: 20px;
+    text-align: center;
+    
 }
 
 .contactform textarea{
-    background-color:rgb(8, 3, 58);
+    background-color: rgb(78, 75, 99);
     width: 50%;
-    margin-left: 12%;
+    margin-left: 24%;
     font-size:20px;
     padding: 10px;
-    border-color: rgb(0,0,0);
+    border-color: rgb(116, 224, 241);
     margin-bottom: 25px;
 }
 
@@ -139,16 +142,15 @@ textarea:focus-within{
     border-width: 3px;
 }
 
-button{
-    background-color: rgb(90, 89, 96);
-    border-radius: 20px;
-    border-color: rgb(0,0,0);
-    font-size: 22px;
-    padding: 10px 10px;
+.button button{
+    background-color: rgb(139, 139, 139);
+    width: 20%;
+    margin-left: 40%;
+    font-size:20px;
+    padding: 10px;
+    border-color: rgb(67, 176, 193);
+    margin-bottom: 25px;
     text-align: center;
-    display:flex;
-    margin:auto;
-    
 }
 
 button:hover{
