@@ -1,9 +1,10 @@
+<!--
 // Notes:
 // This page is unfinished. To do:
-// 1. Complete navigation - keeping consistent design
 // 2. The page doesnt allow for order_details data to be uploaded into the database - work in progress
 // 3. Connect proper database once ready
 // 4. Clean code including external JavaScript
+-->
 
 <?php
 session_start(); // Start the session (if not already started)
@@ -45,19 +46,26 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href = "basketStyle.css" />
+    <script src="basketScript.js"></script>
 
 </head>
 <body>
     <nav>
+      <div class="nav-section">
         <img src = "LOGO.png" width = "200" />
         <ul>
-            <li><a href = "#">Home</a></li>"
-            <li><a href = "#">Products</a></li>"
-            <li><a href = "#">About Us</a></li>"
-            <li><a href = "#">Contact Us</a></li>"
+            <li><a href = "#">Home</a></li>
+            <li><a href = "#">Products</a></li>
+            <li><a href = "#">About Us</a></li>
+            <li><a href = "#">Contact Us</a></li>
+        </ul>
+      </div>
+
+        <ul class="nav-section">
+            <li><a href = "#">Account</a></li>
+            <li><a href = "#">Basket</a></li>
         </ul>
     </nav>
-
 
     <div class="page-container">
         <h1>Shopping Basket</h1> <br>
@@ -191,71 +199,6 @@ try {
             </div>
           </div>
     </div> <!-- Page container close -->
-
-  <script>
-  var total = 0;
-    // Function to calculate and update the subtotal for a specific product
-    function updateSubtotal(event, productId, price) {
-        // Prevent page reload
-        event.preventDefault();
-
-        // Get the quantity value
-        var quantityInput = document.getElementById('quantity' + productId);
-        var quantity = parseInt(quantityInput.value);
-
-        // Calculate the subtotal
-        var subtotal = price * quantity;
-
-        // Update the subtotal element
-        var subtotalElement = document.getElementById('subtotal' + productId);
-        subtotalElement.innerText = 'Subtotal: $' + subtotal.toFixed(2);
-
-        updateTotal();
-    }
-
-    function updateTotal() {
-    // Reset total to zero
-    total = 0;
-
-    // Loop through all product subtotals and add to the total
-    var subtotalElements = document.querySelectorAll('[id^="subtotal"]');
-    subtotalElements.forEach(function (element) {
-        var subtotal = parseFloat(element.innerText.replace('Subtotal: $', ''));
-        total += subtotal;
-    });
-
-    // Update the total element
-    var totalElement = document.getElementById('total');
-    totalElement.innerText = ' $' + total.toFixed(2);
-}
-
-function updateTotalAndSubmit() {
-          // Reset total to zero
-          var total = 0;
-
-          // Loop through all product subtotals and add to the total
-          var subtotalElements = document.querySelectorAll('[id^="subtotal"]');
-          subtotalElements.forEach(function (element) {
-              var subtotal = parseFloat(element.innerText.replace('Subtotal: $', ''));
-              total += subtotal;
-          });
-
-          // Update the total element
-          var totalElement = document.getElementById('total');
-          totalElement.innerText = ' $' + total.toFixed(2);
-
-          // Update the hidden input value
-          document.getElementById('totalInput').value = total.toFixed(2);
-
-          var checkoutForm = document.getElementById('checkoutForm');
-
-      // Submit the form
-      checkoutForm.submit();
-      }
-
-  updateTotal();
-
-  </script>
 
 </body>
 </html>
