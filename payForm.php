@@ -1,10 +1,9 @@
 <!--  Notes:
 // This page is unfinished. To do:
-// 1. Complete navigation - keeping consistent design
+// 1. Navigation bar needs links added
 // 2. Form will need to send the user back to the index.html page
 // 3. Connect proper database once ready
  -->
-
 
 <?php
 session_start();
@@ -60,13 +59,21 @@ try {
     <script src="payFormScript.js"></script>
 </head>
 <body>
-    <nav>
-        <img src="LOGO.png" width="200" />
+
+  <nav>
+      <div class="nav-section">
+        <img src = "LOGO.png" width = "200" />
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href = "#">Home</a></li>
+            <li><a href = "#">Products</a></li>
+            <li><a href = "#">About Us</a></li>
+            <li><a href = "#">Contact Us</a></li>
+        </ul>
+      </div>
+
+        <ul class="nav-section">
+            <li><a href = "#">Account</a></li>
+            <li><a href = "#">Basket</a></li>
         </ul>
     </nav>
 
@@ -126,3 +133,4 @@ try {
     </div> <!-- Page container close -->
 </body>
 </html>
+
