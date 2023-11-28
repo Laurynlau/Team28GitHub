@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+
+  
+  <title>PixelPlay28</title>
+</head>
+
+<body>
+  
+
+  <!-- Top Header Section -->
+  <header class="top-header">
+    <div class="logo-container">
+      <img src="LOGO.png" alt="Your Logo" width="200" >
+    </div>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search by category...">
+      <button onclick="searchProducts()" class="search-btn">Search</button>
+    </div>
+    
+    <div class="user-actions">
+      <div class="dropdown" id="account-dropdown">
+        <button class="account-btn dropbtn">ACCOUNT</button>
+        <div class="dropdown-content">
+        </div>
+    </div>
+
+    <!-- Basket -->
+    <button class="basket-btn">BASKET</button>
+</div>
+  </header>
+
+  <!-- Navigation Section -->
+  <nav class="main-navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+ 
+  <section class = "sports" title="center">
+    <h3>Sports games</h3>
+   <p>
+    Experience the adrenaline and competition of the sporting world with our dynamic Sports Games collection. Dive into the heart of the action with a variety of games that capture the excitement of your favorite sports. From realistic simulations to exhilarating arcade-style gameplay, our curated selection offers something for every sports enthusiast. Score goals, make epic shots, or compete in thrilling tournaments as you immerse yourself in the fast-paced world of virtual athletics. Whether you're a fan of soccer, basketball, racing, or more, our Sports Games deliver an immersive and thrilling gaming experience. Lace up your virtual shoes, grab your gear, and get ready to take on the challenge!
+   </p>
+
+  </section>
+
+<section id="game-section">
+  
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  
+    const sportsGames = [
+    { title: 'EA Sports FC24', category: 'sports', price: 49.99, imageUrl: 'fifa.png', compatibility:'multiple platforms' ,stockLevel: '5'},
+  { title: 'Mario Kart 8 Deluxe', category: 'sports', price: 50.99, imageUrl: 'mario.jpeg', compatibility:'nintendo switch', stockLevel: '15'  },
+  { title: 'NBA 2K24', category: 'sports', price: 40.99, imageUrl: 'nba.jpeg', compatibility:'playstation' ,stockLevel: '10' },
+  { title: 'Rocket League', category: 'sports', price: 29.99, imageUrl: 'rocket.jpeg',compatibility:'playstation',stockLevel: '15'  },
+  { title: 'Wii Sports', category: 'sports', price: 19.99, imageUrl: 'wii.jpeg',compatibility:'nintendo switch',stockLevel: '0'  },
+    ];
+
+
+
+    function displayGames(gamesToDisplay) {
+  const gameSection = document.getElementById('game-section');
+  gameSection.innerHTML = '';
+
+  gamesToDisplay.forEach(game => {
+      const gameElement = document.createElement('div');
+      gameElement.classList.add('game');
+
+  // Determine stock status and color
+  let stockStatus;
+  let stockColor;
+  if (game.stockLevel > 10) {
+      stockStatus = 'In Stock';
+      stockColor = 'green';  // Green color for "In Stock"
+  } else if (game.stockLevel > 0) {
+      stockStatus = 'Low Stock';
+      stockColor = 'orange'; // Orange color for "Low Stock"
+  } else {
+      stockStatus = 'Out of Stock';
+      stockColor = 'red';    // Red color for "Out of Stock"
+  }
+      gameElement.innerHTML = `
+          <img src="${game.imageUrl}" alt="${game.title}">
+          <div class="game-details">
+              <h4>${game.title}</h4>
+              <p>${game.category}</p>
+              <p>${game.compatibility}<p>
+              <h6>£${game.price.toFixed(2)}</h6>
+              <p style="color: ${stockColor};">Stock: ${stockStatus}</p>  
+              <button>Add to Cart</button>
+          </div>
+      `;
+      gameSection.appendChild(gameElement);
+  });
+}
+         
+
+    displayGames(sportsGames);
+
+    document.getElementById('category').addEventListener('change', filterSportsGames);
+});
+
+</script>
+</body>
+</html>
+<footer style="background-color: #2e5497;" class="text-light py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>Contact Us</h5>
+          <p>Email: info@yourgamestore.com</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Games</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        </div>
