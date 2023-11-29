@@ -6,21 +6,23 @@
 
 		<meta charset="UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content = "IE=edge"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/HomepageStyleSheet">    
+		<meta name="viewport" content="width=device-width, initial-scale=1">   
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  />
         <link rel="stylesheet" href = "HomepageStyleSheet.css" />
+        <script src="homepage.js" defer></script>
 
     </head>
     <body>
+        <!--Background behind all content added to website. -->
         <div class="background">
-        
+         
             <div class="navigation">
+                <!--Logo apart of navigation bar / need to make Logo lighter -->
                 <div class="logo">
                     <img src="LOGO.png" width="200"/>
                 </div>
                 
-                <div class="nav1">
+                <div class="main-navigation">
                     <nav>
                         <ul>
                             <li><a href = "">Home</a></li>
@@ -33,7 +35,9 @@
               
             
             </div>
-            <div class="navright">
+
+            <!-- Navigation on the right -->
+            <div class="right-navigation">
                 <nav>
                     <ul>
                             <li><a href = "">Account</a></li>
@@ -41,7 +45,8 @@
                     </ul>
                 </nav>
             </div>
-            <div class="disrow">
+
+            <div class="disclaimer-section">
                 <div class="disclaimer">
                     <h5><strong>DISCLAIMER</strong></h5>
                     <p>
@@ -50,8 +55,10 @@
                 </div>
             </div>
             
+            <!--Slide show header -->
             <div class="bestseller">
                 <img src="Bestseller.png" width="400"/>
+                <!-- Categories section -->
                 <div class="categories">
                     <ul>
                         <img src="Categories.png" width="125"/>
@@ -64,34 +71,44 @@
                 </div>
             </div>
 
-
-            <div class="zelda">
-                <img src="LegendOfZelda.png" width="140">
-                <div class="zeldatext">
-                    <p><strong>The Legend of Zelda</strong></p>
-                    <p>£45.99</p>
-                    <p><i>Nintendo Switch</i></p>
+            <section class="slideshow-section">
+                <!--Slideshow content -->
+                <div class="slideshow-container">
+                    <div class="zelda fade">
+                        <img src="LegendOfZelda.png" width="240" alt = "Game 1">
+                        <div class="zeldatext">
+                            <p><strong>The Legend of Zelda</strong></p>
+                            <p>£45.99</p>
+                            <p><i>Nintendo Switch</i></p>
+                        </div>
+                    </div>
+            
+                    <div class="sims fade">
+                        <img src="Sims4.png" width="240" alt = "Game 2">
+                        <div class="simstext">
+                            <p><strong>The Sims 4</strong></p>
+                            <p>Free</p>
+                            <p><i>Multiple Platforms</i></p>
+                        </div>
+                    </div>
+                
+                    <div class="fifa fade">
+                        <img src="FC24.png" width="240" alt = "Game 3">
+                        <div class="fifatext">
+                            <p><strong>EA FC 24</strong></p>
+                            <p>£41.99</p>
+                            <p><i>Multiple Platforms</i></p>
+                        </div>
+                    </div>
+                
+                    <!-- Navigation dots -->
+                    <div style="text-align:center">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
                 </div>
-            </div>
-    
-            <div class="sims">
-                <img src="Sims4.png" width="140">
-                <div class="simstext">
-                    <p><strong>The Sims 4</strong></p>
-                    <p>Free</p>
-                    <p><i>Multiple Platforms</i></p>
-                </div>
-            </div>
-        
-            <div class="fifa">
-                <img src="FC24.png" width="140">
-                <div class="fifatext">
-                    <p><strong>EA FC 24</strong></p>
-                    <p>£41.99</p>
-                    <p><i>Multiple Platforms</i></p>
-                </div>
-            </div>
-        
-		</div>
+            </section>
+	    </div>
 	</body>
 </html>
