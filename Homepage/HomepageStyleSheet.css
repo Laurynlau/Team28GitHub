@@ -1,10 +1,12 @@
 .background{
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(80, 80, 113, 0.7), rgba(0,0,0,0.7)),url(sportscar.jpg);
+    background-image: url(sportscar.jpg);
     background-position: center;
     background-size: cover;
-    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow:scroll;
 }
 
 .navigation {
@@ -18,39 +20,39 @@
     background-color: rgb(55, 62, 161);
 }
 
-.nav1 ul {
+.logo{
+    position: left;
+}
+
+.main-navigation{
+    flex: 1;
+
+}
+
+.main-navigation ul {
     float: none;
     display: flex;
     list-style: none;
     text-align: center;
 }
 
-.nav1 ul li a {
+.main-navigation ul li a {
     line-height: 60px;
     padding-left: 110px;
     padding-right: 10px;
 }
 
-.logo{
-    position: left;
-}
-
-.nav1{
-    flex: 1;
-
-}
-
-.nav1 ul li {
+.main-navigation ul li {
     list-style: none;
 }
 
-.nav1 ul li a{
+.main-navigation ul li a{
     text-decoration: none;
     color:rgb(18, 13, 71);
     font-size: 10;
 }
 
-.navright{
+.right-navigation{
     height: 12%;
     padding-right: 10px;
     box-sizing: border-box;
@@ -58,29 +60,29 @@
     text-align: right;
 }
 
-.navright ul li a:hover{
+.right-navigation ul li a:hover{
     background-color: rgb(55, 62, 161);
 }
 
-.navright ul li{
+.right-navigation ul li{
     list-style: none;
     display: inline-block;
     margin-left: 20px;
 
 }
 
-.navright ul li a{
+.right-navigation ul li a{
     text-decoration: none;
     color:rgb(18, 13, 71);
     font-size: 10;
 }
 
-.navright ul li a{
+.right-navigation ul li a{
     line-height: 60px;
     padding: 0.2px;
 }
 
-.disrow{
+.disclaimer-section{
     display: flex;
     height: 5;
     align-items: center;
@@ -115,86 +117,151 @@
     color:rgb(185, 110, 250);
 }
 
+.slideshow-section {
+    position: relative;
+    background-color: #00090a00;
+    height: 0%;
+    bottom: 30px;
+}
+  
+.slideshow-container {
+    max-width: 50%;
+    height: 20%;
+    margin: 0 auto;
+    overflow: hidden;
+    
+}
+
 .zelda, .sims, .fifa {
     width: 10%;
     position: absolute;
-    left: 50%;
-    top: 58%;
+    left: 45%;
+    top: 70%;
     transform: translate(-50%,-50%);
 }
 
+
+
 .zeldatext, .simstext, .fifatext{
     color:rgb(185, 110, 250);
-    font-size: 10px;
-    display:grid;
+    position: absolute;
+    top: 50%;
+    left: -70%;
+    transform: translate(-50%, -50%);
+}
+
+.fade{
+    animation:  fade 5s ease-in-out infinite;
+}
+
+@keyframes fade {
+    0%, 100% {
+      opacity: 0;
+    }
+    25%, 75% {
+      opacity: 1;
+    }
+  }
+
+/* Navigation dots */
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.game-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #00090a00;
+}
+  
+.heading{
+    padding-top: 200px;
+    padding-left:525px;
+}
+    
+.category {
+    width: 200px; /* Set a fixed width for each category box */
+    height: 200px; /* Set a fixed height for each category box */
+    margin: 20px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box; /* Include padding and border in the box dimensions */      
+}
+    
+.category img {
+    width: 100%;
+    height: auto; /* Adjust as needed */
+    max-width: 100%;
+    border-radius: 8px;
+}
+.game-categories :hover{
+  background-color: #406ab4;
+}
+    
+.category h3 {
+    margin-top: 10px;
+}
+    
+.category p {
+    color: #555;
+}
+    
+.category a {
+    margin-top: auto; 
+    padding: 8px 15px;
+    background-color: #2e5497;
+    color: #ccc;
     text-align: center;
-    position:absolute;
-    padding-left: 17px;
+    border-radius: 4px;
+    cursor: pointer;
 }
-
-.zelda{
-    animation: slide1 12s linear infinite;
+    
+.category a:hover {
+    background-color: #1d3a6d;
 }
-
-.sims{
-    animation: slide2 12s linear infinite;
-}
-
-.fifa{
-    animation: slide3 12s linear infinite;
-}
-
-@keyframes slide1{
-    0%{
-        visibility: visible;
-    }
-    25%{
-        visibility: hidden;
-    }
-    50%{
-        visibility: hidden;
-    }
-    75%{
-        visibility: hidden;
-    }
-    100%{
-        visibility: hidden;
+    
+@media screen and (max-width: 768px) {
+    .game-categories {
+    flex-direction: column; /* Stack items in a column on smaller screens */
     }
 }
-
-@keyframes slide2{
-    0%{
-        visibility: hidden;
-    }
-    25%{
-        visibility: hidden;
-    }
-    50%{
-        visibility: visible;
-    }
-    75%{
-        visibility: hidden;
-    }
-    100%{
-        visibility: hidden;
-    }
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
 }
-
-@keyframes slide3{
-    0%{
-        visibility: hidden;
-    }
-    25%{
-        visibility: hidden;
-    }
-    50%{
-        visibility: hidden;
-    }
-    75%{
-        visibility: hidden;
-    }
-    100%{
-        visibility: visible;
-    }
+    /* Add your existing CSS styles here */
+    /* Add your existing CSS styles here */
+  
+#heroCarousel {
+    width: 100%; /* Make the slideshow container 100% width of the viewport */
+    height: 80vh; /* Adjust the height as needed */
+    overflow: hidden; /* Hide overflow to prevent scrollbars */
+    margin-top: 0; /* Remove top margin */
 }
-
+    
+.carousel-inner {
+    width: 100%; /* Make the inner container 100% width */
+    height: 100%; /* Make the inner container 100% height */
+}
+    
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire container */
+}
+    
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
