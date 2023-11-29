@@ -34,28 +34,4 @@ var total = 0;
   totalElement.innerText = ' $' + total.toFixed(2);
 }
 
-function updateTotalAndSubmit() {
-        // Reset total to zero
-        var total = 0;
-
-        // Loop through all product subtotals and add to the total
-        var subtotalElements = document.querySelectorAll('[id^="subtotal"]');
-        subtotalElements.forEach(function (element) {
-            var subtotal = parseFloat(element.innerText.replace('Subtotal: $', ''));
-            total += subtotal;
-        });
-
-        // Update the total element
-        var totalElement = document.getElementById('total');
-        totalElement.innerText = ' $' + total.toFixed(2);
-
-        // Update the hidden input value
-        document.getElementById('totalInput').value = total.toFixed(2);
-
-        var checkoutForm = document.getElementById('checkoutForm');
-
-    // Submit the form
-    checkoutForm.submit();
-    }
-
 updateTotal();
