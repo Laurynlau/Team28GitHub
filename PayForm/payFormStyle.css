@@ -1,0 +1,175 @@
+nav {
+    width: 100%;
+    height: 60px;
+    top: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-section{
+  display: flex;
+}
+
+nav ul li a {
+    color: rgb(255, 255, 255);
+    line-height: 60px;
+    padding: 0 20px;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 7px;
+    margin-right:10px;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    background-color: rgb(0, 255, 255);
+}
+
+body {
+    background-image: url("sportscar.jpg");
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+}
+
+div {
+    color: rgb(255, 255, 255);
+}
+
+.page-container {
+    background-color: #343541;
+    width:60%;
+    margin-left: 20%;
+    padding: 20px;
+    margin-top: 100px;
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    text-align: center;
+}
+
+.form-container{
+  width:70%;
+  display: flex;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  border-radius: 15px;
+  margin-left:15%;
+  margin-bottom: 50px;
+}
+
+.checkout-button {
+  width:50%;
+  padding:8px;
+  font-size: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-left: 15%;
+  margin-bottom: 20px;
+}
+
+.form-left-half{
+  flex: 0.3;
+  margin-left: 0%;
+  border-right: 1px dashed;
+  text-align: left;
+  margin-left: 5%;
+}
+
+.form-right-half{
+  flex: 0.7;
+}
+
+.order-heading{
+  margin-top: 15px;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+.display-column {
+  display: flex;
+  margin-left: 20px;
+  flex-direction: column;
+}
+
+.item-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+}
+
+.left-section {
+  margin-right: 20px;
+}
+
+.middle-section {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.left-align {
+  margin-bottom: 0;
+}
+
+.product-img {
+  height: 90px;
+  width: auto;
+}
+
+.middle-section {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.product-img{
+  height: 90px;
+  width: auto;
+}
+
+.total-display {
+  font-size: 20px;
+  text-align: left;
+  margin-left: 30px;
+}
+
+label {
+  margin-top: 10px;
+}
+
+#cardCVV{
+  width: 50px;
+}
+
+#cardExpiry{
+  width: 100px;
+}
+
+@media only screen and (max-width: 1060px) {
+  .form-container{
+    width:70%;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    border-radius: 15px;
+    margin-left:15%;
+    margin-bottom: 50px;
+  }
+  .form-right-half{
+    display:none;
+  }
+  .form-left-half{
+    flex: 1;
+    border-right:none;
+    text-align: center;
+  }
+}
