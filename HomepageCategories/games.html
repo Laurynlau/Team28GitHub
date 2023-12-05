@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+
+    <title>Games</title>
+</head>
+
+<body>
+
+  <!-- Top Header Section -->
+  <header class="top-header">
+    <div class="logo-container">
+      <img src="LOGO.png" alt="Your Logo" width="200" >
+    </div>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search by category...">
+      <button onclick="searchProducts()" class="search-btn">Search</button>
+    </div>
+
+    <div class="user-actions">
+      <div class="dropdown" id="account-dropdown">
+        <button class="account-btn dropbtn">ACCOUNT</button>
+        <div class="dropdown-content">
+        </div>
+    </div>
+
+    <!-- Basket -->
+    <button class="basket-btn">BASKET</button>
+  </header>
+ 
+
+  <!-- Navigation Section -->
+  <nav class="main-navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="filters">
+      <label for="category">Filter by Category:</label>
+      <select id="category" class="filter-select">
+          <option value="all">All Categories</option>
+          <option value="adventure">Adventure</option>
+          <option value="board">Board games</option>
+          <option value="puzzle">Puzzle games</option>
+          <option value="simulation">Simulation games</option>
+          <option value="sports">Sports games</option>
+  
+      </select>
+      
+
+
+      <label for="price-range">Filter by Price:</label>
+      <select id="price-range" class="filter-select">
+          <option value="all">All Prices</option>
+          <option value="0-20">£0 - £20</option>
+          <option value="20-40">£20 - £40</option>
+          <option value="40+">£40+</option>
+     
+      </select>
+  </div>
+
+  <section id="game-section"> 
+</section>
+
+
+  
+
+</body>
+<footer style="background-color: #2e5497;" class="text-light py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <p>Email: info@yourgamestore.com</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Games</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      </div>
+   </div>
+ </footer>
+
+</html>

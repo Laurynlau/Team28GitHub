@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+          <!-- Top Header Section -->
+  <header class="top-header">
+    <div  class="logo-container">
+      <img src="LOGO.png" alt="Your Logo" width="200" >
+    </div>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search by category...">
+        <button onclick="searchProducts()" class="search-btn">Search</button>
+      </div>
+      
+    <div class="user-actions">
+        <div class="dropdown" id="account-dropdown">
+          <button class="account-btn dropbtn">ACCOUNT</button>
+          <div class="dropdown-content">
+          </div>
+      </div>
+  
+      <!-- Basket -->
+      <button class="basket-btn">BASKET</button>
+  </div>
+  </header>
+
+  <!-- Navigation Section -->
+  <nav class="main-navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+    </header>
+  
+    <header>
+        <h1>Previous Orders</h1>
+    </header>
+    <main id="order-history" class="order-history">
+        <!-- Orders will be dynamically added here -->
+    </main>
+ 
+    <script >
+document.addEventListener("DOMContentLoaded", function () {
+    // Simulated data, replace this with actual backend integration
+    const ordersData = [
+        {
+            orderId: 1,
+            date: "January 1, 2023",
+            status: "Delivered",
+            products: [
+                { id: 1, name: "Adventure Game", price: 29.99, returnRequested: false, rating: null, review: null },
+       
+            ]
+        },
+        // Add more orders as needed
+    ];
+
+    const orderHistoryContainer = document.getElementById("order-history");
+
+    // Display orders on page load
+    displayOrders(ordersData, orderHistoryContainer);
+
+    function displayOrders(orders, container) {
+        container.innerHTML = ""; // Clear existing content
+
+        orders.forEach(order => {
+            const orderDiv = document.createElement("div");
+            orderDiv.classList.add("order");
+
+            orderDiv.innerHTML = `
+                <h2>Order #${order.orderId}</h2>
+                <p>Date: ${order.date}</p>
+                <p>Status: ${order.status}</p>
+                <ul>
+                    ${order.products.map(product => `
+                        <li>
+                            ${product.name} - £${product.price.toFixed(2)}
+                            <button class="return-btn" data-order-id="${order.orderId}" data-product-id="${product.id}" ${product.returnRequested ? 'disabled' : ''}>Request Return</button>
+                            <div class="rating-section">
+                                ${product.rating !== null ? `<p>Rating: ${product.rating}</p>` : ''}
+                                <button class="rating-btn" data-order-id="${order.orderId}" data-product-id="${product.id}" ${product.rating !== null ? 'disabled' : ''}>Rate</button>
+                            </div>
+                            <div class="review-section">
+                                ${product.review !== null ? `<p>Review: ${product.review}</p>` : ''}
+                                <button class="review-btn" data-order-id="${order.orderId}" data-product-id="${product.id}" ${product.review !== null ? 'disabled' : ''}>Write Review</button>
+                            </div>
+                        </li>
+                    `).join("")}
+                </ul>
+            `;
+
+            container.appendChild(orderDiv);
+
+            // Attach event listeners for return, rating, and review buttons
+            const returnBtns = orderDiv.querySelectorAll(".return-btn");
+            const ratingBtns = orderDiv.querySelectorAll(".rating-btn");
+            const reviewBtns = orderDiv.querySelectorAll(".review-btn");
+
+            returnBtns.forEach(returnBtn => {
+                returnBtn.addEventListener("click", () => handleReturnRequest(order.orderId, returnBtn));
+            });
+
+            ratingBtns.forEach(ratingBtn => {
+                ratingBtn.addEventListener("click", () => handleRate(order.orderId, ratingBtn));
+            });
+
+            reviewBtns.forEach(reviewBtn => {
+                reviewBtn.addEventListener("click", () => handleWriteReview(order.orderId, reviewBtn));
+            });
+        });
+    }
+
+    function handleReturnRequest(orderId, returnBtn) {
+        // Simulate backend request to set returnRequested to true
+        const order = ordersData.find(order => order.orderId === orderId);
+        const productId = returnBtn.getAttribute("data-product-id");
+        const product = order.products.find(product => product.id === parseInt(productId));
+        product.returnRequested = true;
+
+        // Update the UI
+        returnBtn.disabled = true;
+        const returnRequestedMessage = document.createElement("p");
+        returnRequestedMessage.classList.add("return-requested");
+        returnRequestedMessage.textContent = "Return Requested";
+        returnBtn.parentElement.appendChild(returnRequestedMessage);
+    }
+
+    function handleRate(orderId, ratingBtn) {
+        const order = ordersData.find(order => order.orderId === orderId);
+        const productId = ratingBtn.getAttribute("data-product-id");
+        const product = order.products.find(product => product.id === parseInt(productId));
+
+        if (product.rating === null) {
+            const rating = prompt(`Rate ${product.name} (1 to 5):`);
+            
+            // Update the UI and simulated data
+            if (rating) {
+                product.rating = parseInt(rating);
+                ratingBtn.disabled = true;
+
+                const ratingSection = ratingBtn.parentElement;
+                ratingSection.innerHTML = `<p>Rating: ${product.rating}</p>`;
+            }
+        } else {
+            alert(`You have already rated ${product.name}`);
+        }
+    }
+
+    function handleWriteReview(orderId, reviewBtn) {
+        const order = ordersData.find(order => order.orderId === orderId);
+        const productId = reviewBtn.getAttribute("data-product-id");
+        const product = order.products.find(product => product.id === parseInt(productId));
+
+        if (product.review === null) {
+            const review = prompt(`Write a review for ${product.name}:`);
+            
+            // Update the UI and simulated data
+            if (review) {
+                product.review = review;
+                reviewBtn.disabled = true;
+
+                const reviewSection = reviewBtn.parentElement;
+                reviewSection.innerHTML = `<p>Review: ${product.review}</p>`;
+            }
+        } else {
+            alert(`You have already reviewed ${product.name}`);
+        }
+    }
+});
+;</script>
+
+   
+
+</body>
+</html>
+  

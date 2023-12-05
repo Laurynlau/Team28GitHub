@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+
+  
+  <title>PixelPlay28</title>
+</head>
+
+<body>
+
+    <div class="background">
+        <!-- Top Header Section -->
+        <header class="top-header">
+            <div class="logo-container">
+                <img src="LOGO.png" alt="Your Logo" width="200">
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search by category...">
+                <button onclick="searchProducts()" class="search-btn">Search</button>
+            </div>
+
+            <div class="user-actions">
+                <div class="dropdown" id="account-dropdown">
+                    <button class="account-btn dropbtn">ACCOUNT</button>
+                    <div class="dropdown-content">
+                    </div>
+                </div>
+
+                <!-- Basket -->
+                <button class="basket-btn">BASKET</button>
+            </div>
+        </header>
+
+        <!-- Navigation Section -->
+        <nav class="main-navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="ContactUs/contactus.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="disclaimer-section">
+            <div class="disclaimer">
+                <h5><strong>DISCLAIMER</strong></h5>
+                <p>
+                   <strong>Health and Safety warning: Please be advised that our website may contain colours that can trigger photosensitive epilepsy in some users. Please consult a doctor before using our website. User discretion is advised.</strong>
+                </p>
+            </div>
+        </div>
+
+        <section class="hero-section">
+            <div class="container-fluid">
+                <div class="card bg-primary text-white text-center">
+                    <div class="card-body">
+                        <h3 class="card-title"><strong>Most Popular</strong></h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Slideshow Section -->
+        <section class="slideshow-section">
+
+
+            <div class="slideshow-container">
+                <!-- Slide 1 -->
+                <div class="slide fade">
+                    <img src="slide1dina.jpeg" alt="Game 1">
+                    <div class="slide-content">
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide fade">
+                    <img src="slide2.jpeg" alt="Game 2">
+                    <div class="slide-content">
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide fade">
+                    <img src="slide3.jpeg" alt="Game 3">
+                    <div class="slide-content">
+
+                    </div>
+                </div>
+
+                <!-- Navigation dots -->
+                <div style="text-align:center">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="heading">
+            <h3><strong>Categories</strong></h3>
+        </section>
+
+        <!-- Game Categories Section -->
+        <section class="game-categories">
+
+            <div class="category">
+                <img src="adventure.jpg" alt="Adventure Category">
+                <h3>Adventure Games</h3>
+                <p>Embark on thrilling journeys and epic quests.</p>
+                <a href="adventure.html">Explore</a>
+            </div>
+
+            <div class="category">
+                <img src="board.jpeg" alt="Board Category">
+                <h3>Board Games</h3>
+                <p>Enjoy strategic and competitive board games.</p>
+                <a href="board.html">Explore</a>
+            </div>
+
+            <div class="category">
+                <img src="puzzle.jpg" alt="Puzzle Category">
+                <h3>Puzzle Games</h3>
+                <p>Challenge your mind with engaging puzzles.</p>
+                <a href="puzzle.html">Explore</a>
+            </div>
+
+            <div class="category">
+                <img src="simulation.jpg" alt="Simulation Category">
+                <h3>Simulation Games</h3>
+                <p>Immerse yourself in realistic virtual worlds.</p>
+                <a href="simulation.html">Explore</a>
+            </div>
+
+            <div class="category">
+                <img src="fifaslide.jpeg" alt="Sports Category">
+                <h3>Sports Games</h3>
+                <p>Experience the excitement of sports simulations.</p>
+                <a href="sports.html">Explore</a>
+            </div>
+
+        </section>
+
+        <footer style="background-color: #2e5497;" class="text-light py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Contact Us</h5>
+                        <p>Email: info@yourgamestore.com</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="games.html">Games</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
