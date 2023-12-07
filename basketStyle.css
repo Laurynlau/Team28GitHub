@@ -5,6 +5,8 @@ body {
     padding: 0;
     background-color: #e6e6e6;
     color: #333;
+    width: 100%;
+    overflow-x: hidden;
   }
 
 nav {
@@ -113,18 +115,8 @@ input[type="text"]:focus {
     color: #142c4b;
   }
 
-.photosensitivity-disclaimer {
-    background-color: #f0f0f0;
-    color: #555555;
-    padding: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    margin-top: 10px;
-    text-align: center;
-  }
 
-
-/* Basket body styles*/
+/* body styles*/
 .hero-section {
     position: relative;
     width: 100%;
@@ -132,7 +124,7 @@ input[type="text"]:focus {
     text-align: center;
   }
 
- .featured-games-title {
+ .page-title {
     margin-bottom: 10px;
     background-color: #3498db;
     color: #ffffff;
@@ -140,153 +132,103 @@ input[type="text"]:focus {
     box-shadow: 0 0 10px #3498db;
   }
 
- .btn {
-    position: absolute;
-    bottom: 20px; /* Adjust the distance from the bottom */
-    left: 50%;
-    transform: translateX(-50%);
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
+/* All form styles*/
+.form-container{
+  width:70%;
+  display: flex;
+  box-shadow: 0 0 10px #3498db;
+  border-radius: 15px;
+  margin-left:15%;
+  margin-bottom: 50px;
+}
 
- .btn:hover {
-    background-color: #2c3e50;
-  }
+.checkout-button {
+  width:50%;
+  padding:8px;
+  font-size: 20px;
+  border-radius: 20px;
+  border-color: #3498db;
+  margin-top: 20px;
+  margin-left: 15%;
+  margin-bottom: 20px;
+}
 
-  .row-container {
-    display: flex;
-  }
+.form-left-half{
+  flex: 0.4;
+  margin-left: 0%;
+  border-right: 1px dashed;
+  text-align: left;
+  margin-left: 5%;
+}
 
-  .item-container {
-    margin-top:50px;
-    display: flex;
-    height: auto;
-    margin-left: 20%;
-    box-shadow: 0 0 10px #3498db;
-    border-radius: 15px;
-    width:60%;
-  }
+.form-right-half{
+  flex: 0.6;
+}
 
-  .left-section, .middle-section, .single-section, .next-column{
-    flex: 1;
-    padding: 5px; /* Add padding for better spacing */
-  }
+.order-heading{
+  margin-top: 15px;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
 
-  .middle-section {
-    flex: 20%;
-    display: flex;
-    flex-direction: column;
-    text-align: left; /* Set text alignment to the left */
-  }
+.display-column {
+  display: flex;
+  margin-left: 20px;
+  flex-direction: column;
+}
 
-  .right-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center items horizontally */
-  }
+.item-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
 
-  .quantity {
-    margin-top:16px;
-  }
+.order-item {
+  display: flex;
+  align-items: center;
+}
 
-  .right-align{
-    text-align: right;
-  }
+.left-section {
+  margin-right: 20px;
+}
 
-  .single-section {
-    margin-left:25%;
-  }
+.middle-section {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
 
-  .padding{
-    padding: 5px;
-  }
+.left-align {
+  margin-bottom: 0;
+}
 
-  .right-section-half {
-    margin-bottom: 10px;
-    padding: 0;
-  }
+.product-img {
+  height: 90px;
+  width: auto;
+}
 
-  .top-half, .bottom-half {
-    display: flex;
-  }
+.product-img{
+  height: 90px;
+  width: auto;
+}
 
-  .next-column {
-    flex: 0.5;
-    margin-left: 15px;
-    align-items: center;
-    text-align: center;
-  }
+.total-display {
+  font-size: 20px;
+  text-align: left;
+  margin-left: 30px;
+}
 
-  .bin-container {
-      width: 10%;
-      border: none;
-  }
+label {
+  margin-top: 10px;
+}
 
-  .bin-button {
-      margin-top:50%;
-      border: none;
-      padding: 0;
-      background: none;
-      cursor: pointer;
-    }
+#cardCVV{
+  width: 50px;
+}
 
-  .bin-img {
-    margin-left: 25%;
-    width: 40px;
-    height:auto;
-  }
-
-  .price {
-    font-size: 25px;
-    margin-top:30px;
-  }
-
-  .checkout-container {
-      display: flex;
-      flex-direction: column;
-      width: 30%;
-      margin-left: 53%;
-  }
-
-  .total-container{
-    display: flex;
-    flex: 1;
-  }
-
-  .total-text {
-    font-size: 25px;
-    margin-top: 2px;
-  }
-
-  .checkout-button {
-      width:50%;
-      padding:8px;
-      font-size: 20px;
-      border-radius: 20px;
-      box-shadow: 0 0 10px #3498db;
-      margin-left: 35%;
-      border-color: #3498db;
-  }
-
-  .product-img, .left-section {
-    width:80px;
-    height:auto;
-  }
-
-  .update {
-    margin-top: 10px;
-  }
-
-
- @media (max-width: 768px) {}
-
+#cardExpiry{
+  width: 100px;
+}
 
 /* All footer styles*/
 footer {
@@ -294,7 +236,6 @@ footer {
     color: #ffffff;
     padding: 20px;
     text-align: center;
-    position: fixed;
     height: 100px;
     width: 100%;
     bottom: 0;
@@ -337,3 +278,24 @@ footer a:hover {
 .footer-social a:hover {
     color: #333
   }
+
+/* Responsive page - works optimised for mobile*/
+@media only screen and (max-width: 1060px) {
+  .form-container{
+    width:70%;
+    box-shadow: 0 0 10px #3498db;
+    border-radius: 15px;
+    margin-left:15%;
+    margin-bottom: 50px;
+  }
+
+  .form-right-half{
+    display:none;
+  }
+
+  .form-left-half{
+    flex: 1;
+    border-right:none;
+    text-align: center;
+  }
+}
