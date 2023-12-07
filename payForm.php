@@ -48,53 +48,58 @@ try {
 ?>
 
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <title>PixelPlay28 - Checkout</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="payFormStyle.css" />
-    <script src="payFormScript.js"></script>
+    <meta charset="UTF-8">
+    <title>PixelPlay28 - Pay Here</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="payFormStyle.css">
 </head>
 <body>
 
-  <nav>
-      <div class="nav-section">
-        <img src = "LOGO.png" width = "200" />
-        <ul>
-            <li><a href = "#">Home</a></li>
-            <li><a href = "#">Products</a></li>
-            <li><a href = "#">About Us</a></li>
-            <li><a href = "#">Contact Us</a></li>
-        </ul>
-      </div>
+    <nav>
+        <img src="LOGO.png" alt="Your Logo" class="logo">
+        <a  href="home.html">Home</a>
+        <a href="games.html">Shop</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
 
-        <ul class="nav-section">
-            <li><a href = "#">Account</a></li>
-            <li><a href = "#">Basket</a></li>
-        </ul>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search by category...">
+            <button onclick="searchProducts()" class="search-btn">
+                <i class="fas fa-search search-icon"></i>
+            </button>
+        </div>
+
+        <div class="dropdown" id="account-dropdown">
+            <i class="fas fa-user icon"></i>
+            <div class="dropdown-content">
+            </div>
+        </div>
+        <i class="fas fa-shopping-basket icon"></i>
     </nav>
 
+    <div class="hero-section">
+    <h1 class="page-title">Checkout</h1><br>
     <div class="page-container">
-        <h1>Checkout</h1> <br>
         <div class="form-container" onsubmit="return validatePayment()">
             <div class="form-left-half">
               <h3 class="order-heading"> Card Details </h3>
-                <form id="paymentForm" action="">
+                <form id="paymentForm" action="index.php">
                     <!-- Payment details -->
                     <label for="cardHolder">Cardholder Name:</label><br>
-                    <input type="text" id="cardHolder" placeholder="Enter your name" required><br>
+                    <input type="text" id="cardHolder" placeholder="Enter your name" required><br><br>
 
                     <label for="cardNumber">Card Number:</label><br>
-                    <input type="text" id="cardNumber" maxlength="16" placeholder="Enter 16-digit number" required><br>
+                    <input type="text" id="cardNumber" maxlength="16" placeholder="Enter 16-digit number" required><br><br>
 
                     <label for="expiryDate">Expiry Date:</label><br>
-                    <input type="date" id="cardExpiry" placeholder="Enter expiry date" required><br>
+                    <input type="date" id="cardExpiry" placeholder="Enter expiry date" required><br><br>
 
                     <label for="cvv">CVV:</label><br>
-                    <input type="text" id="cardCVV" maxlength="3" placeholder="Enter CVV" required><br>
+                    <input type="text" id="cardCVV" maxlength="3" placeholder="Enter CVV" required><br><br>
 
                     <!-- Submit button -->
                     <button type="submit" class="checkout-button">Pay Now</button>
@@ -131,6 +136,24 @@ try {
             </div> <!-- Right-half close div -->
         </div> <!-- Form container close -->
     </div> <!-- Page container close -->
-</body>
-</html>
+  </div> <!-- Hero - section container close -->
 
+</body>
+
+<footer id="footer">
+    <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="footer-social">
+        <!-- Add social media icons with links -->
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>&copy; 2023 PixelPlay28. All rights reserved.</p>
+</footer>
+
+</html>
