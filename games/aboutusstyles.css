@@ -1,0 +1,87 @@
+
+nav{
+    padding-bottom: 20px;
+}
+body {
+    font-family: 'Arial', sans-serif; 
+    font-size: 16px;
+    color: #333; 
+}
+.container {
+    max-width: 100%; 
+    margin: 0 auto; 
+    padding: 0 15px; 
+}
+
+#title {
+    background-image: url('pixel2.gif');
+    background-size: cover; 
+    background-size: 100% auto; 
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff; 
+    padding: 50px 0; 
+    margin-top: -20px; 
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+
+.brand-name {
+    color: #fff; 
+}
+
+.about-text-container {
+    background-color: rgba(0, 0, 0, 0.6); 
+    padding: 20px; 
+    border-radius: 10px; 
+}
+
+
+#title h1{
+    font-size: 2.5rem;
+    color: #ffffff; /* Change this to your desired text color */
+    margin-bottom: 10px;
+    display: inline-block;
+
+}
+
+#title h1, #title p {
+    color: #fff;
+    opacity: 0;
+    transform: translate(60px, 100px);
+    animation: slideUpAndLeft 2s ease-out forwards;
+}
+
+@keyframes slideUpAndLeft {
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+#features{
+    background-color: #fff;
+}
+
+#features .col {
+    margin-bottom: 20px;
+}
+
+#features h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+@media (max-width: 767px) {
+    #features .col {
+        margin-bottom: 10px;
+    }
+}
+footer{
+    margin-top: 20px;
+}
