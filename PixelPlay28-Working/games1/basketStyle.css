@@ -1,10 +1,11 @@
 /* All heading styles*/
-body {
+body{
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #e6e6e6;
     color: #333;
+    min-height: 100vh;
   }
 
 nav {
@@ -257,6 +258,7 @@ input[type="text"]:focus {
       flex-direction: column;
       width: 30%;
       margin-left: 53%;
+      margin-bottom:6%;
   }
 
   .total-container{
@@ -293,42 +295,39 @@ input[type="text"]:focus {
 
 
 /* All footer styles*/
+
 footer {
     background: linear-gradient(to bottom, #e6e6e6, #3498db);
     color: #ffffff;
     padding: 20px;
     text-align: center;
-    position: fixed;
-    height: 100px;
-    width: 100%;
-    bottom: 0;
-  }
+}
 
 footer ul {
     list-style: none;
     padding: 0;
-  }
+}
 
 footer li {
     display: inline;
     margin: 0 15px;
-  }
+}
 
 footer a {
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
-  }
+}
 
 footer a:hover {
     text-decoration: underline;
-   color: #333;
- }
+    color: #333;
+}
 
 .footer-social {
     margin-top: 20px;
-  }
+}
 
 .footer-social a {
     display: inline-block;
@@ -336,8 +335,8 @@ footer a:hover {
     margin-right: 30px;
     color: #ffffff;
     font-size: 20px;
-  }
+}
 
 .footer-social a:hover {
     color: #333
-  }
+}
