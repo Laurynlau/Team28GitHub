@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    require_once 'connectdb.php';
+    require_once 'db_connect.php';
 
     $query = "SELECT * FROM users WHERE username = ? LIMIT 1";
     $stmt = $conn->prepare($query);
