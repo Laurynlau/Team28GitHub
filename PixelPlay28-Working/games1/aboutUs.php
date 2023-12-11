@@ -39,21 +39,21 @@
         <h1 class="page-title">About Us</h1><br>
         <div class="main-text">
           <h3> Welcome to PixelPlay28: Where Pixels Come To Life! </h3>
-          <p> At PixelPlay28, were more than just a aming platform; we're a community, a celebration of pixels, and a journey into the immersive world of play.
+          <p> At PixelPlay28, we're more than just a gaming platform; we're a community, a celebration of pixels, and a journey into the immersive world of play.
             Our story is rooted in a passion for gaming and a vision to create a space where every gamer feels at home. </p>
           <h3> What Sets Us Apart? </h3>
           <ul class="left-align">
-            <li><strong>Diverse Selection</strong> - PixelPlay28 is committed to offering a curated selection of adventure, board games, puzzles, simulations, and sports games.
+            <li><strong>Diverse Selection</strong> - PixelPlay28 is committed to offering a curated selection of adventure, board, puzzle, simmulation, and sports games.
               We hand pick each title to ensure a diverse and engaging experience for every gamer within the 16-25 age group.</li>
             <li><strong>Mental Health Focus</strong> - We prioritize your mental well-being. Our platform is dedicated to offering games that promote relaxation, cognitive development,
               and social interactions. PixelPlay28 is not just a platform; it's a commitment to a healthier gaming experience.</li>
-            <li><strong>Community Building</strong> - PixelPlay28 isnt just a marketplace; it's a commnity. Join us in celebrating the joy of gaming, sharing experiences, and discovering the transformative power of play.</li>
+            <li><strong>Community Building</strong> - PixelPlay28 isnt just a marketplace; it's a community. Join us in celebrating the joy of gaming, sharing experiences, and discovering the transformative power of play.</li>
           </ul>
 
           <div class="row-container">
             <div class="left-section">
               <h3> Our Vision </h3>
-              <p class="padding"> At PixelPlay28, we envision a future where gaming trancends boundaries, creating a positive impact on individuals' lives, one pixel at a time.
+              <p class="padding"> At PixelPlay28, we envision a future where gaming transcends boundaries, creating a positive impact on individuals' lives, one pixel at a time.
                 We see a world where every gaming experience, carefully curated and shared within our vibrant community, contributes to personal growth, mental well-being, and lasting connections. </p>
             </div>
             <div class="right-section">

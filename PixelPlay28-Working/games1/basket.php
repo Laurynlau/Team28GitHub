@@ -15,7 +15,7 @@ $_SESSION['user_id'] = 1;
 
 //add product to wishlist
 if (isset($_POST['product_id_to_add'])) {
-    var_dump("hear");
+    // var_dump("hear");
     $user_id = $_SESSION['user_id'];
     $product_id_to_add = $_POST['product_id_to_add'];
     $productQuery = "INSERT INTO wishlist (user_id, product_id) VALUES (?, ?)";
@@ -305,7 +305,7 @@ if (isset($_POST['checkout'])) {
                     </div>
                     <form method="post" action="">
                         <div class="total-container">
-                            <button type="submit" class="checkout-button" name="checkout" onclick="updateTotalAndSubmit() window.location.href = 'payForm.php' ">Checkout</button>
+                            <button type="submit" class="checkout-button" name="checkout" onclick="updateTotalAndSubmit(); window.location.href = 'payForm.php' ">Checkout</button>
                             <input type="hidden" name="checkout" value="true" class="form-input">
                         </div>
                     </form>

@@ -1,13 +1,11 @@
 <?php
 session_start();
 require_once('connectdb.php');
-$query = "SELECT * FROM product";
+$query = "SELECT * FROM products";
 $rows = $db->query($query);
 foreach ($rows as $row) {
     var_dump($row);
 }
-
-
 
 if(isset($_POST["add_to_cart"]))
 {
@@ -128,7 +126,7 @@ if(isset($_GET["action"]))
   <section id="game-section" class="game-container">
 </section>
 
-<?php>
+<?php
     $query = "SELECT * FROM tbl_product ORDER BY id ASC";
     $result = mysqli_query($connect, $query);
     if(mysqli_num_rows($result) > 0)

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,6 +49,11 @@
         </p>
     </div>
 
+    <?php 
+        if ($_SESSION["username"]) {
+            echo "<br>Logged in as <b>" . $_SESSION["username"] . "</b><br>";
+        }
+    ?>
 
     <div class="hero-section">
         <h1 class="featured-games-title">Featured Games</h1>

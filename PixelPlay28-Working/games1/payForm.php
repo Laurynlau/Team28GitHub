@@ -7,6 +7,11 @@
 
 <?php
 session_start();
+if (empty($_SESSION['token'])) {
+  $_SESSION['token'] = bin2hex(random_bytes(32));
+}
+$token = $_SESSION["token"];
+
 require_once('connectdb.php');
 
 // Set a user ID directly in the session for testing
@@ -56,15 +61,16 @@ try {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <link rel="stylesheet" href="payFormStyle.css">
+    <script src="home.js"></script>
 </head>
 <body>
 
     <nav>
         <img src="LOGO.png" alt="Your Logo" class="logo">
-        <a  href="home.html">Home</a>
-        <a href="games.html">Shop</a>
-        <a href="aboutus.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
+        <a href="home.php">Home</a>
+        <a href="games.php">Shop</a>
+        <a href="aboutUs.php">About Us</a>
+        <a href="contact.php">Contact Us</a>
 
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Search by category...">
@@ -101,6 +107,7 @@ try {
                     <label for="cvv">CVV:</label><br>
                     <input type="text" id="cardCVV" maxlength="3" placeholder="Enter CVV" required><br><br>
 
+                    <input type="hidden" name="token" value="<?php echo $token; ?>">
                     <!-- Submit button -->
                     <button type="submit" class="checkout-button">Pay Now</button>
                 </form>
@@ -142,10 +149,10 @@ try {
 
 <footer id="footer">
     <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="games.html">Games</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="home.php">Home</a></li>
+        <li><a href="games.php">Games</a></li>
+        <li><a href="aboutUs.php">About Us</a></li>
+        <li><a href="contact.php">Contact Us</a></li>
     </ul>
     <div class="footer-social">
         <!-- Add social media icons with links -->
