@@ -19,40 +19,39 @@ $token = $_SESSION["token"];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST["login_submitted"])) {
         // LOGIN HANDLER
-        if (!empty($_POST['token']) && hash_equals($_SESSION['token'], $_POST['token'])) {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-        
-            require_once 'db_connect.php';
-        
-            $query = "SELECT * FROM users WHERE username = ? LIMIT 1";
-            $stmt = $conn->prepare($query);
-            $stmt->bind_param("s", $username);
-            $stmt->execute();
-            $result = $stmt->get_result();
-        
-            if ($result->num_rows == 1) {
-                $row = $result->fetch_assoc();
-        
-                if (password_verify($password, $row['password'])) {
-                    $_SESSION['user_id'] = $row['user_id'];
-                    $_SESSION['username'] = $row['username'];
-                    $_SESSION['email'] = $row['email'];
-                    $_SESSION['loggedin'] = true;
-        
-                    if (isset($_SESSION['redirect_url'])) {
-                        header('Location: ' . $_SESSION['redirect_url']);
-                    } else {
-                        header('Location: home.php');
-                    }
-                    exit;
-                }
-            }
-        
-            $login_err = 'Invalid username or password.';
-        
-            $stmt->close();        
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    require_once 'db_connect.php';
+
+    $query = "SELECT * FROM users WHERE email = ? LIMIT 1";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['loggedin'] = true;
+
+            $redirect_url = isset($_SESSION['redirect_url']) ? $_SESSION['redirect_url'] : 'home.php';
+            $redirect_url = filter_var($redirect_url, FILTER_SANITIZE_URL);
+
+            header('Location: ' . $redirect_url);
+            exit;
         }
+    }
+
+    $login_err = 'Invalid email or password.';
+
+    $stmt->close();
+}
     } elseif (isset($_POST["register_submitted"])) {
         // REGISTER HANDLER
         if (!empty($_POST['token']) && hash_equals($_SESSION['token'], $_POST['token'])) {
