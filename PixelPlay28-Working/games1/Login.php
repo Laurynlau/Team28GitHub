@@ -10,28 +10,129 @@
 </head>
 
 <body>
+<?php
+session_start();
+if (empty($_SESSION['token'])) {
+    $_SESSION['token'] = bin2hex(random_bytes(32));
+}
+$token = $_SESSION["token"];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST["login_submitted"])) {
+        // LOGIN HANDLER
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    require_once 'db_connect.php';
+
+    $query = "SELECT * FROM users WHERE email = ? LIMIT 1";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['loggedin'] = true;
+
+            $redirect_url = isset($_SESSION['redirect_url']) ? $_SESSION['redirect_url'] : 'home.php';
+            $redirect_url = filter_var($redirect_url, FILTER_SANITIZE_URL);
+
+            header('Location: ' . $redirect_url);
+            exit;
+        }
+    }
+
+    $login_err = 'Invalid email or password.';
+
+    $stmt->close();
+}
+    } elseif (isset($_POST["register_submitted"])) {
+        // REGISTER HANDLER
+        if (!empty($_POST['token']) && hash_equals($_SESSION['token'], $_POST['token'])) {
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        
+            require_once 'db_connect.php';
+
+            // Making usernames unique. Not currently functional.
+            // $firstCheck = $conn->prepare("SELECT * FROM users WHERE username = ?");
+            // if ($firstCheck) {
+            //     $firstCheck->bind_param("s", $username);
+            //     $firstResult = $firstCheck->get_result();
+            //     if ($firstResult) {
+            //         if ($firstResult->num_rows > 0) {
+            //             echo "An account with that username already exists.";
+            //         }
+            //     } else {
+            //         if (mysqli_connect_errno()) {
+            //             echo "Error executing statement: " . $stmt->error;
+            //         }
+            //     }
+            // } else {
+            //     echo "Error preparing statement: " . $conn->error;
+            // }
+            
+            $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+        
+            if ($stmt) {
+                $stmt->bind_param("sss", $username, $email, $password);
+        
+                $success = $stmt->execute();
+                
+                if ($success) {
+                    if (isset($_SESSION['redirect_url'])) {
+                        header('Location: ' . $_SESSION['redirect_url']);
+                    } else {
+                        header('Location: home.php');
+                    }
+                    exit;
+                } else {
+                    echo "Error executing statement: " . $stmt->error;
+                }
+        
+                $stmt->close();
+            } else {
+                echo "Error preparing statement: " . $conn->error;
+            }
+        
+            $conn->close();        
+        }
+    }
+}
+?>
 
     <img src="LOGO.png" alt="Your Logo" class="logo">
 
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form>
+            <form action="Login.php" method="POST" id="registerform">
                 <h1>Create Account</h1>
-            <span>or use your email for registeration</span>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Sign Up</button>
+            <span>or use your email for registration</span>
+                <input type="text" placeholder="Username" name="username">
+                <input type="email" placeholder="Email" name="email">
+                <input type="password" placeholder="Password" name="password">
+                <input type="hidden" name="register_submitted" value="true">
+                <input type="hidden" name="token" value="<?php echo $token; ?>">
+                <button type="submit">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in">
-            <form>
+            <form action="Login.php" method="POST" id="signinform">
                 <h1>Sign In</h1>
                  <span>or use your email password</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="text" placeholder="Username" name="username">
+                <input type="password" placeholder="Password" name="password">
                 <a href="#">Forget Your Password?</a>
-                <button>Sign In</button>
+                <input type="hidden" name="login_submitted" value="true">
+                <input type="hidden" name="token" value="<?php echo $token; ?>">
+                <button type="submit">Sign In</button>
             </form>
         </div>
         <div class="toggle-container">
