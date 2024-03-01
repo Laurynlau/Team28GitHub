@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require_once "connectdb.php";
+    require_once "db_connect.php";
 
     $email = $_POST["email"];
     $username = $_POST["username"];
