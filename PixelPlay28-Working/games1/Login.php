@@ -112,26 +112,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form action="Login.php" method="POST" id="registerform">
+            <form action="process_signup.php" method="post">
                 <h1>Create Account</h1>
-            <span>or use your email for registration</span>
-                <input type="text" placeholder="Username" name="username">
-                <input type="email" placeholder="Email" name="email">
-                <input type="password" placeholder="Password" name="password">
-                <input type="hidden" name="register_submitted" value="true">
-                <input type="hidden" name="token" value="<?php echo $token; ?>">
+                <span>or use your email for registration</span>
+                <input type="text" name="username" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
                 <button type="submit">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in">
-            <form action="Login.php" method="POST" id="signinform">
+            <form action="process_login.php" method="post">
                 <h1>Sign In</h1>
-                 <span>or use your email password</span>
-                <input type="text" placeholder="Username" name="username">
-                <input type="password" placeholder="Password" name="password">
+                <span>or use your email password</span>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
                 <a href="#">Forget Your Password?</a>
-                <input type="hidden" name="login_submitted" value="true">
-                <input type="hidden" name="token" value="<?php echo $token; ?>">
                 <button type="submit">Sign In</button>
             </form>
         </div>
