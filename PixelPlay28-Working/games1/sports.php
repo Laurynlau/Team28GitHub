@@ -1,3 +1,10 @@
+<?php
+session_start();
+require_once('connectdb.php');
+$query = "SELECT * FROM products where genre_id = 5";
+$rows = $db->query($query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,8 +62,37 @@
   <section id="game-section" class="game-container">
   </section>
 
+  <section id="game-section" class="game-container">
+  </section>
 
-<script>
+  <script src="home.js"></script>
+<!--<script src="gamescript.js"></script>-->
+<section id="game-section" class="game-container">
+    <?php foreach ($rows as $row) {
+    ?> 
+    <form action="basket.php" method="post">
+
+    <div class="game">
+    <img src="<?php echo $row["image_path"] ?>" alt=" The Legend of Zelda: Breath of the Wild">
+        <div class="game-details">
+            <h3> <?php echo $row["title"] ?> </h3>
+            <br>
+            <?php echo $row["description"] ?>
+            <h4> £<?php echo $row["price"] ?></h4>
+            <p style="color: orange;">Low Stock</p>
+            <input type="hidden" value="<?php echo $row["product_id"]; ?>" name="product_id_to_add">
+            <button type="submit" name="add_to_cart" value="Add to cart"> Add to cart </button>
+        </div>
+    </div>
+    </form>
+    <?php 
+}
+?>
+</section>
+<script src = "basketScript.js"></script>
+
+
+<!--<script>
     document.addEventListener('DOMContentLoaded', function() {
 
     const sportsGames = [
@@ -112,6 +148,8 @@
 });
 
 </script>
+
+-->
 
 <script src="home.js"></script>
 </body>

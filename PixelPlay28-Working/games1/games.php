@@ -51,12 +51,11 @@ $rows = $db->query($query);
       <label for="category">Filter by Category:</label>
       <select id="category" class="filter-select">
           <option value="all">All Categories</option>
-          <option value="adventure">Adventure</option>
-          <option value="board">Board games</option>
-          <option value="puzzle">Puzzle games</option>
-          <option value="simulation">Simulation games</option>
-          <option value="sports">Sports games</option>
-
+          <option value="adventure">Adventure game</option>
+          <option value="board">Board game</option>
+          <option value="puzzle">Puzzle game</option>
+          <option value="simulation">Simulation game</option>
+          <option value="sports">Sports game</option>
       </select>
 
       <label for="price-range">Filter by Price:</label>
@@ -65,25 +64,25 @@ $rows = $db->query($query);
           <option value="0-20">£0 - £20</option>
           <option value="20-40">£20 - £40</option>
           <option value="40+">£40+</option>
-
       </select>
   </div>
 
-  <section id="game-section" class="game-container"></section>
+  
 
 <script src="home.js"></script>
-<!--<script src="gamescript.js"></script>-->
+<script src="gamescript.js"></script>
+
 <section id="game-section" class="game-container">
     <?php foreach ($rows as $row) {
     ?> 
     <form action="basket.php" method="post">
 
     <div class="game">
-    <img src="<?php echo $row["image_path"] ?>" alt=" The Legend of Zelda: Breath of the Wild">
+    <img src="<?php echo $row["image_path"] ?>">
         <div class="game-details">
             <h3> <?php echo $row["title"] ?> </h3>
-            <p>adventure</p>
-            <p> nintendo switch</p>
+            <br>
+            <?php echo $row["description"] ?>
             <h4> £<?php echo $row["price"] ?></h4>
             <p style="color: orange;">Low Stock</p>
             <input type="hidden" value="<?php echo $row["product_id"]; ?>" name="product_id_to_add">
