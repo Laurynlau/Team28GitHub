@@ -80,10 +80,16 @@ try {
         </div>
 
         <div class="dropdown" id="account-dropdown">
+        <?php if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) : ?>
             <i class="fas fa-user icon"></i>
             <div class="dropdown-content">
-            </div>
+            <a href="login.php">Sign In</a>
         </div>
+        <?php else : ?>
+            <p>Welcome, <?php echo $_SESSION["username"]; ?></p>
+            <a href="logout.php">Logout</a>
+        <?php endif; ?>
+    </div>
         <i class="fas fa-shopping-basket icon"></i>
     </nav>
 
