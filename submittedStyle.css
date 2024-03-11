@@ -2,8 +2,16 @@ nav{
     margin-bottom: 25px;
 }
 
-footer{
-    margin-top: 30px;
+footer {
+    background: linear-gradient(to bottom, #e6e6e6, #3498db);
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
 }
 
 body {
