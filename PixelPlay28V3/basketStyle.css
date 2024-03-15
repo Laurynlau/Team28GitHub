@@ -1,0 +1,348 @@
+/* All heading styles*/
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e6e6e6;
+    color: #333;
+    min-height: 100vh;
+  }
+
+nav {
+    background: linear-gradient(to bottom,#ecf0f1, #e6e6e6);
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    color: #142c4b;
+    text-decoration: none;
+    padding: 14px 16px;
+    display: inline-block;
+    white-space: nowrap; /* Prevent text from wrapping */
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+nav a:hover {
+    background: linear-gradient(to bottom, #e6e6e6, #3498db); /* Gradient from off-white to primary color */
+    color: #ffffff;
+  }
+
+.nav-button {
+  border: none;
+}
+
+.dropdown {
+    display: inline-block;
+  }
+
+.dropdown-content {
+    color: #6f8695;
+    display: none;
+    position: absolute;
+    background-color:#ffffff;
+    box-shadow: 0 8px 16px #f9f9f9;
+    z-index: 1;
+    text-align: left;
+    font-weight: normal;
+  }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    background-color: #cccccc;
+    box-shadow: 0 2px 5px #cccccc(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+  }
+
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 2px 0 0 2px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-size: 14px;
+  }
+
+input[type="text"]:focus {
+    border-color: #2c5393;
+  }
+
+.search-icon {
+    font-size: 20px;
+    color: #f9f9f9;
+  }
+
+.search-btn {
+    padding: 10px 15px;
+    background-color: #142c4b;
+    border: none;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+    color: #f9f9f9;
+  }
+
+.icon {
+    color: #142c4b;
+    font-size: 20px;
+    margin: 0 10px;
+    padding: 12px;
+  }
+
+.icon:hover{
+    background: linear-gradient(to bottom, #e6e6e6, #3498db);
+    color: #ffffff;
+  }
+
+.logo {
+    max-width: 45%;
+    margin-right: 20px;
+    height: 80px;
+  }
+
+.dropdown-content a {
+    font-weight:lighter ;
+    font-size: 18px;
+    color: #142c4b;
+  }
+
+.photosensitivity-disclaimer {
+    background-color: #f0f0f0;
+    color: #555555;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+
+/* Basket body styles*/
+.hero-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+  }
+
+ .featured-games-title {
+    margin-bottom: 10px;
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 10px 0;
+    box-shadow: 0 0 10px #3498db;
+  }
+
+ .btn {
+    position: absolute;
+    bottom: 20px; /* Adjust the distance from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+ .btn:hover {
+    background-color: #2c3e50;
+  }
+
+  .row-container {
+    display: flex;
+  }
+
+  .item-container {
+    margin-top:50px;
+    display: flex;
+    height: auto;
+    margin-left: 20%;
+    box-shadow: 0 0 10px #3498db;
+    border-radius: 15px;
+    width:60%;
+  }
+
+  .left-section, .middle-section, .single-section, .next-column{
+    flex: 1;
+    padding: 5px; /* Add padding for better spacing */
+  }
+
+  .middle-section {
+    flex: 20%;
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Set text alignment to the left */
+  }
+
+  .right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+  }
+
+  .quantity {
+    margin-top:16px;
+  }
+
+  .right-align{
+    text-align: right;
+  }
+
+  .single-section {
+    margin-left:25%;
+  }
+
+  .padding{
+    padding: 5px;
+  }
+
+  .right-section-half {
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+  .top-half, .bottom-half {
+    display: flex;
+  }
+
+  .next-column {
+    flex: 0.5;
+    margin-left: 15px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bin-container {
+      width: 10%;
+      border: none;
+  }
+
+  .bin-button {
+      margin-top:50%;
+      border: none;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+    }
+
+  .bin-img {
+    margin-left: 25%;
+    width: 40px;
+    height:auto;
+  }
+
+  .price {
+    font-size: 25px;
+    margin-top:30px;
+  }
+
+  .checkout-container {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      margin-left: 53%;
+      margin-bottom:6%;
+  }
+
+  .total-container{
+    display: flex;
+    flex: 1;
+  }
+
+  .total-text {
+    font-size: 25px;
+    margin-top: 2px;
+  }
+
+  .checkout-button {
+      width:50%;
+      padding:8px;
+      font-size: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px #3498db;
+      margin-left: 35%;
+      margin-bottom: 20%;
+      border-color: #3498db;
+  }
+
+  .product-img, .left-section {
+    width:80px;
+    height:auto;
+  }
+
+  .update {
+    margin-top: 10px;
+  }
+
+
+ @media (max-width: 768px) {}
+
+
+/* All footer styles*/
+
+footer {
+    background: linear-gradient(to bottom, #e6e6e6, #3498db);
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer li {
+    display: inline;
+    margin: 0 15px;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #333;
+}
+
+.footer-social {
+    margin-top: 20px;
+}
+
+.footer-social a {
+    display: inline-block;
+    margin: 0 10px;
+    margin-right: 30px;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.footer-social a:hover {
+    color: #333
+}
