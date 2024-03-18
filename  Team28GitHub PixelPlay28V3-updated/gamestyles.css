@@ -1,0 +1,190 @@
+nav{
+   
+    padding-bottom: 20px;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6e6e6;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Change link color */
+a {
+    color: #333; /* Change to your desired color */
+}
+
+/* Hover effect for links */
+a:hover {
+    color: darkblue; /* Change to your desired hover color */
+}
+.Container{
+    width: 900px;
+    margin: auto;
+    max-width: 90vw;
+    text-align: center;
+    padding-top: 10px;
+    transition: transform .6s;
+}
+svg{
+    width: 30px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+.cart-icon{
+    position: relative;
+}
+.cart-icon span{
+    position: absolute;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    top: 50%;
+    right: -20px;
+}
+.title{
+    font-size: xx-large;
+}
+
+/*.list-Product .item img{
+    width: 90%;
+}
+.list-Product{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+.list-Product .item{
+    padding: 20px;
+    border-radius: 20px;
+}
+.list-Product .item h2{
+    font-weight: 500;
+    font-size: large;
+}
+.list-Product .item .price{
+    letter-spacing: 7px;
+    font-size: small;
+}
+.list-Product .item button{
+    background-color: #353432;
+    color: #eee;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+}*/
+
+/*@media only screen and (max-width: 992px) {
+    .listProduct{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}*/
+
+
+/* mobile */
+/*
+@media only screen and (max-width: 768px) {
+    .listProduct{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}*/
+
+.container {
+    display: flex;
+    flex-direction: row; /* or column, depending on your layout */
+    justify-content: space-between; /* or other values */
+    align-items: center; /* or other values */
+}
+
+
+
+.filters, .game-container {
+    height: auto;
+}
+
+
+.filters {
+    background-color: #3498db;
+    padding: 30px;
+    text-align: center;
+    color: #ffffff;
+  
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 50px;
+    margin: 50px;
+    box-shadow: 0 4px 8px (0, 0, 0, 0.1);
+}
+
+.game {
+
+    height: 40%;
+    border: 1px solid #ddd;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.game:hover {
+    transform: scale(1.05);
+}
+
+.game img {
+    width: 100%;
+ height: 450px;
+    margin-bottom: 10px;
+}
+
+.game-details h3 {
+    margin: 0;
+}
+
+/* Style for the add to cart button */
+.game-details button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px #3498db;
+
+}
+
+
+.Adventure, .Board, .puzzle, .simulation, .sports {
+    background-color: #3498db; 
+    padding: 25px; 
+    text-align: center;
+    color: #e6e6e6;
+    box-shadow: 0 0 10px #3498db;
+}
+
+
+.Adventure h3, .Board h3, .puzzle h3, .simulation h3,  .sports h3 {
+    font-size: 2em; /* Adjust heading font size */
+    margin-bottom: 20px; /* Add space below heading */
+}
+
+.Adventure p, .Board p, .puzzle p, .simulation p, .sports p {
+    font-size: 1em; /* Adjust paragraph font size */
+    line-height: 1.5; /* Adjust line height for better readability */
+}
+
