@@ -18,8 +18,7 @@ body {
 
 #title {
   background-image: url('pixel2.gif');
-  background-color: #e6e6e6;
-
+  
   background-size: cover; 
   background-size: 100% auto; 
   background-position: center;
