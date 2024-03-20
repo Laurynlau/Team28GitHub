@@ -1,10 +1,3 @@
-<!--
-// Notes:
-// This page is unfinished. To do:
-// 1. The page now allows data to be inserted into database, quantity selectors do not reflect what is saved in database
-      and therefore makes the total incorrect if not the same. - work in progress
--->
-
 <?php
 session_start();
 require_once('connectdb.php');
@@ -200,127 +193,133 @@ if (isset($_POST['checkout'])) {
 
     <div class="hero-section">
         <h1 class="featured-games-title">Your Basket</h1>
+        <?php
+        // Check if the user is logged in
+        if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+            // Redirect the user to the login page or display a message
+            echo "<p>Please <a href='login.php'>sign in</a> to add items to your basket!</p>";
+        } else {
+            // Display the product information
+            if ($rows && $rows->rowCount() > 0) {
+                foreach ($rows as $row) {
+                    ?>
+            <div class="row-container">
+                <div class="item-container">
+                    <div class="left-section"> <!-- picture of item Box -->
+                        <img src="<?php echo $row['image_path']; ?>" alt="Product Image" class="product-img">
+                    </div>
 
-  <?php
-  // Display the product information
-  if ($rows && $rows->rowCount() > 0) {
-      foreach ($rows as $row) {
-          ?>
-          <form method="post" action="">
-              <div class="row-container">
-                  <div class="item-container">
-                      <div class="left-section"> <!-- picture of item Box -->
-                          <img src="<?php echo $row['image_path']; ?>" alt="Product Image" class="product-img">
-                      </div>
-
-                      <div class="middle-section">
-                          <div class="top-half"> <!-- item title Box -->
-                              <p class="left-align"><?php echo $row['title']; ?></p>
-                          </div>
-                          <div class="bottom-half"> <!-- item description Box -->
-                              <p><?php echo $row['description']; ?></p>
-                          </div>
-                      </div>
-
-                      <div class="right-section"> <!-- item price Box -->
-                          <input type="hidden" name="" id="totalInput" value="0.00">
-                          <p class="price">$<?php echo $row['price']; ?></p>
-                      </div>
-
-                      <div class="next-column">
-                          <!-- Quantity Box -->
-                          <div class="top-half">
-                              <label for="quantity" class="quantity">Quantity:</label>
-                          </div>
-                          <form action="" method="post">
-                          <div class="top-half">
-                              <?php
-                              $productId = $row['product_id'];
-                              $price = $row['price'];
-                              ?>
-                              <input type="hidden" value="<?php echo $productId; ?>" name="update_quantity_id">
-                              <input type="number" class="quantity-input" id="quantity<?php echo $productId; ?>" name="update_quantity" min="1" max="10" step="1" value="1" data-product-id="<?php echo $productId; ?>"
-                                  onchange="updateSubtotal(event, <?php echo $productId; ?>, <?php echo $price; ?>)" onkeydown="return event.key !== 'Enter';">
-                          </div>
-                          <div class="bottom-half">
-                              <button type="submit" class="update" name="update_product_quantity" value="Update"> Update </button>
-                          </div>
-                        </form>
-                      </div>
-
-                      <div class="next-column">
-                          <!-- Subtotal Box -->
-                          <p class="subtotal" id="subtotal<?php echo $productId; ?>" data-product-id="<?php echo $productId; ?>">Subtotal: $<?php echo $price; ?></p>
-                      </div>
-                  </div> <!-- Item container close -->
-
-                  <?php
-                  require_once('connectdb.php');
-
-                  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                      if (isset($_POST['delete_item'])) {
-                          try {
-                              $productIdToDelete = $_POST['delete_item'];
-
-                              // Getting user ID
-                              $user_id = $_SESSION['user_id'];
-
-                              // Delete the item from the wishlist
-                              $stmt = $db->prepare("DELETE FROM wishlist WHERE user_id = ? AND product_id = ?");
-                              $stmt->execute([$user_id, $productIdToDelete]);
-
-                              if ($stmt->rowCount() > 0) {
-                                  echo "Item deleted successfully.";
-                                  header("Location: basket.php"); // refreshes page
-                                  exit();
-                              } else {
-                                  echo "Item not found in the wishlist.";
-                                  header("Location: basket.php");
-                                  exit();
-                              }
-                          } catch (PDOException $ex) {
-                              echo "An error occurred: " . $ex->getMessage();
-                          }
-                      }
-                    }
-                  ?>
-
-                  <div class="bin-container">
-                      <form method="post" action="">
-                          <input type="hidden" name="delete_item" value="<?php echo $row['product_id']; ?>">
-                          <button type="submit" class="bin-button">
-                              <img src="bin.png" class="bin-img" alt="Delete Item">
-                          </button>
-                      </form>
-                  </div>
-              </div> <!-- Row container close -->
-          </form>
-          <?php
-          }
-          ?>
-
-          <div class="checkout-container">
-                    <div class="total-container">
-                        <div class="left-section right-align total-text ">
-                            <p>Total:</p>
+                    <div class="middle-section">
+                        <div class="top-half"> <!-- item title Box -->
+                            <p class="left-align"><?php echo $row['title']; ?></p>
                         </div>
-                        <div class="right-section quantity">
-                            <input type="hidden" name="total" id="totalInput" value="0.00">
-                            <p><span id="total" class="total-text"> </span></p>
+                        <div class="bottom-half"> <!-- item description Box -->
+                            <p><?php echo $row['description']; ?></p>
                         </div>
                     </div>
-                    <form method="post" action="">
-                        <div class="total-container">
-                            <button type="submit" class="checkout-button" name="checkout" onclick="updateTotalAndSubmit() window.location.href = 'payForm.php' ">Checkout</button>
-                            <input type="hidden" name="checkout" value="true" class="form-input">
+
+                    <div class="right-section"> <!-- item price Box -->
+                        <input type="hidden" name="" id="totalInput" value="0.00">
+                        <p class="price">$<?php echo $row['price']; ?></p>
+                    </div>
+
+                    <div class="next-column">
+                        <!-- Quantity Box -->
+                        <div class="top-half">
+                            <label for="quantity" class="quantity">Quantity:</label>
                         </div>
+                        <form action="" method="post">
+                        <div class="top-half">
+                            <?php
+                            $productId = $row['product_id'];
+                            $price = $row['price'];
+                            ?>
+                            <input type="hidden" value="<?php echo $productId; ?>" name="update_quantity_id">
+                            <input type="number" class="quantity-input" id="quantity<?php echo $productId; ?>" name="update_quantity" min="1" max="10" step="1" value="1" data-product-id="<?php echo $productId; ?>"
+                                onchange="updateSubtotal(event, <?php echo $productId; ?>, <?php echo $price; ?>)" onkeydown="return event.key !== 'Enter';">
+                        </div>
+                        <div class="bottom-half">
+                            <button type="submit" class="update" name="update_product_quantity" value="Update"> Update </button>
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="next-column">
+                        <!-- Subtotal Box -->
+                        <p class="subtotal" id="subtotal<?php echo $productId; ?>" data-product-id="<?php echo $productId; ?>">Subtotal: $<?php echo $price; ?></p>
+                    </div>
+                </div> <!-- Item container close -->
+
+                <?php
+                require_once('connectdb.php');
+
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    if (isset($_POST['delete_item'])) {
+                        try {
+                            $productIdToDelete = $_POST['delete_item'];
+
+                            // Getting user ID
+                            $user_id = $_SESSION['user_id'];
+
+                            // Delete the item from the wishlist
+                            $stmt = $db->prepare("DELETE FROM wishlist WHERE user_id = ? AND product_id = ?");
+                            $stmt->execute([$user_id, $productIdToDelete]);
+
+                            if ($stmt->rowCount() > 0) {
+                                echo "Item deleted successfully.";
+                                header("Location: basket.php"); // refreshes page
+                                exit();
+                            } else {
+                                echo "Item not found in the wishlist.";
+                                header("Location: basket.php");
+                                exit();
+                            }
+                        } catch (PDOException $ex) {
+                            echo "An error occurred: " . $ex->getMessage();
+                        }
+                    }
+                  }
+                ?>
+
+                <div class="bin-container">
+                    <form method="post" action="">
+                        <input type="hidden" name="delete_item" value="<?php echo $row['product_id']; ?>">
+                        <button type="submit" class="bin-button">
+                            <img src="bin.png" class="bin-img" alt="Delete Item">
+                        </button>
                     </form>
                 </div>
-  <?php
-  } else {
-      echo "No products found in the wishlist.";
-  }
-  ?>
+            </div> <!-- Row container close -->
+            </form>
+
+            <div class="checkout-container">
+                  <div class="total-container">
+                      <div class="left-section right-align total-text ">
+                          <p>Total:</p>
+                      </div>
+                      <div class="right-section quantity">
+                          <input type="hidden" name="total" id="totalInput" value="0.00">
+                          <p><span id="total" class="total-text"> </span></p>
+                      </div>
+                  </div>
+                  <form method="post" action="">
+                      <div class="total-container">
+                          <button type="submit" class="checkout-button" name="checkout" onclick="updateTotalAndSubmit() window.location.href = 'payForm.php' ">Checkout</button>
+                          <input type="hidden" name="checkout" value="true" class="form-input">
+                      </div>
+                  </form>
+              </div>
+                <?php
+            } // End of foreach loop
+
+            // Your checkout container and form here
+        } else {
+            echo "No products found in the wishlist.";
+        }
+    }
+    ?>
+</div> <!-- Hero-section close div -->
+
      </div> <!-- Hero-section close div -->
 
 <script src="home.js"></script>
