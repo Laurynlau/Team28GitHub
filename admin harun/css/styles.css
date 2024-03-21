@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #1d5cc2;
+  background-color: rgb(235, 228, 228);
   color: #000000;
   font-family: 'Montserrat', sans-serif;
 }
@@ -13,23 +13,26 @@ body {
 }
 
 .grid-container {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 260px 1fr 1fr 1fr;
   grid-template-rows: 0.2fr 3fr;
   grid-template-areas:
     'sidebar header header header'
     'sidebar main main main';
-  height: 100vh;
+  height: 100vh; */
+  display: flex;
+ margin-top: 5px;
+  padding: 10px;
+  flex-direction: column;
 }
 
 
 .header {
-  grid-area: header;
-  height: 70px;
   display: flex;
+  height: 50px;
+  width: 100%;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 30px 0 30px;
+  justify-content: space-around;
   box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
 }
 
@@ -39,12 +42,12 @@ body {
 
 
 #sidebar {
-  grid-area: sidebar;
-  height: 100%;
-  background-color: #263043;
-  overflow-y: auto;
+display: flex;
+  height: 20px;
+  background-color: rgb(235, 228, 228);
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
+  width: 30%;
 }
 
 .sidebar-title {
@@ -83,7 +86,7 @@ body {
 
 .sidebar-list-item > a {
   text-decoration: none;
-  color: #9e9ea4;
+  color: #1b1b1c;
 }
 
 .sidebar-responsive {
@@ -94,12 +97,24 @@ body {
 }
 
 
+.Order-main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  text-align: center;
+  
+}
+
+
+
 
 .main-container {
-  grid-area: main;
+  /* grid-area: main; */
   overflow-y: auto;
   padding: 20px 20px;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(19, 18, 18, 0.95);
 }
 
 .main-title {
@@ -109,7 +124,7 @@ body {
 
 .main-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
   gap: 20px;
   margin: 20px 0;
 }
@@ -155,15 +170,6 @@ body {
   margin-top: 60px;
 }
 
-.charts-card {
-  background-color: #263043;
-  margin-bottom: 20px;
-  padding: 25px;
-  box-sizing: border-box;
-  -webkit-column-break-inside: avoid;
-  border-radius: 5px;
-  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
-}
 
 .chart-title {
   display: flex;
@@ -175,11 +181,14 @@ body {
 
 @media screen and (max-width: 992px) {
   .grid-container {
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr;
     grid-template-rows: 0.2fr 3fr;
     grid-template-areas:
       'header'
-      'main';
+      'main'; */
+
+      display: flex;
+      height: 50px;
   }
 
   #sidebar {
