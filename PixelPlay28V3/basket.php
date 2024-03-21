@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 require_once('connectdb.php');
@@ -292,6 +293,14 @@ if (isset($_POST['checkout'])) {
             </div> <!-- Row container close -->
             </form>
 
+            <?php
+            } // End of foreach loop
+        } else {
+            echo "No products found in the wishlist.";
+        }
+    }
+    ?>
+
             <div class="checkout-container">
                   <div class="total-container">
                       <div class="left-section right-align total-text ">
@@ -309,18 +318,8 @@ if (isset($_POST['checkout'])) {
                       </div>
                   </form>
               </div>
-                <?php
-            } // End of foreach loop
-
-            // Your checkout container and form here
-        } else {
-            echo "No products found in the wishlist.";
-        }
-    }
-    ?>
+                
 </div> <!-- Hero-section close div -->
-
-     </div> <!-- Hero-section close div -->
 
 <script src="home.js"></script>
 <script src="logout.js"></script>
