@@ -1,9 +1,3 @@
-<!--  Notes:
-// This page is unfinished. To do:
-// 1. Navigation bar needs links added
-// 2. Form will need to send the user back to the index.html page
-// 3. Connect proper database once ready
- -->
 
  <?php
 session_start();
@@ -18,20 +12,10 @@ try {
         $user_id = $_SESSION['user_id'];
 
         // Getting products from the order details for the user
-        $query = "SELECT
-          od.order_id,
-          p.image_path,
-          p.title,
-          od.quantity,
-          od.price_per_unit
-          FROM
-            order_details od
-          JOIN
-            products p ON od.product_id = p.product_id
-          JOIN
-            orders o ON od.order_id = o.order_id
-          WHERE
-            o.user_id = $user_id";
+        $query = "SELECT DISTINCT products.*, wishlist.quantity, products.price
+        FROM products
+        INNER JOIN wishlist ON products.product_id = wishlist.product_id
+        WHERE wishlist.user_id = '$user_id';";
 
         // Run the query
         $rows = $db->query($query);
@@ -156,7 +140,7 @@ if (isset($_POST['cancelOrder'])) {
                   <?php
                   if ($rows && $rows->rowCount() > 0) {
                     foreach ($rows as $row) {
-                      $itemTotal = $row['quantity'] * $row['price_per_unit'];
+                      $itemTotal = $row['quantity'] * $row['price'];
                       $overallTotal += $itemTotal
                   ?>
                   <div class="item-container">
@@ -168,6 +152,10 @@ if (isset($_POST['cancelOrder'])) {
                         <p class="left-align"><?php echo $row['title']; ?></p>
                       </div> <!-- middle-section close div -->
                     </div> <!-- order-item close div -->
+
+                    <div class="end-section">
+                    <p> Quantity: <?php echo $row['quantity']; ?> </p>
+                    </div> <!-- middle-section close div -->
                   </div> <!-- item-container close div -->
                   <?php
                   }
@@ -176,7 +164,7 @@ if (isset($_POST['cancelOrder'])) {
                   }
                   ?>
                 </div> <!-- display-column close div -->
-                <p class="total-display">Overall Total: $<?php echo $overallTotal; ?></p>
+                <p class="total-display">Overall Total: £<?php echo $overallTotal; ?></p>
                 <form method="post">
                 <button type="submit" name="cancelOrder"class="checkout-button cancel-button">Cancel Order</button>
                 </form>
@@ -189,10 +177,10 @@ if (isset($_POST['cancelOrder'])) {
 
 <footer id="footer">
     <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="games.html">Games</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="home.php">Home</a></li>
+        <li><a href="games.php">Games</a></li>
+        <li><a href="aboutus.php">About Us</a></li>
+        <li><a href="contact.php">Contact Us</a></li>
     </ul>
     <div class="footer-social">
         <!-- Add social media icons with links -->
