@@ -1,3 +1,4 @@
+
 /* All heading styles*/
 body {
     font-family: Arial, sans-serif;
@@ -185,6 +186,7 @@ input[type="text"]:focus {
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
+  justify-content: space-between;
 }
 
 .order-item {
@@ -200,6 +202,14 @@ input[type="text"]:focus {
   display: flex;
   flex-direction: column;
   text-align: left;
+}
+
+.end-section {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-right:15%;
+  margin-top: 20px;
 }
 
 .left-align {
