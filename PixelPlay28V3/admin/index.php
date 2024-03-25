@@ -1,5 +1,12 @@
+<?php
+session_start();
+require_once "connectdb.php";
+require "check_admin.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -12,12 +19,13 @@
 
 <body>
 	<div class="grid-container">
+
 		<header class="header">
 			<div class="menu-icon" onclick="openSidebar()">
 				<span class="material-icons-outlined">menu</span>
 			</div>
 			<div class="header-left">
-				<span>Logged in as <b>user_name</b></span>
+				<span>Logged in as <b><?= $_SESSION["username"] ?></b></span>
 			</div>
 		</header>
 
@@ -55,7 +63,13 @@
 						<h3>PRODUCTS</h3>
 						<span class="material-icons-outlined">inventory_2</span>
 					</div>
-					<h1>37</h1>
+					<h1>
+						<?php
+						$products_query = $db->query("SELECT * FROM products");
+						$products = $products_query->fetchAll();
+						echo count($products);
+						?>
+					</h1>
 				</div>
 
 				<div class="card">
@@ -63,7 +77,13 @@
 						<h3>CATEGORIES</h3>
 						<span class="material-icons-outlined">category</span>
 					</div>
-					<h1>5</h1>
+					<h1>
+						<?php
+						$genres_query = $db->query("SELECT * FROM genres");
+						$genres = $genres_query->fetchAll();
+						echo count($genres);
+						?>
+					</h1>
 				</div>
 
 				<div class="card">
@@ -71,7 +91,13 @@
 						<h3>CUSTOMERS</h3>
 						<span class="material-icons-outlined">groups</span>
 					</div>
-					<h1>100</h1>
+					<h1>
+						<?php
+						$users_query = $db->query("SELECT * FROM users");
+						$users = $users_query->fetchAll();
+						echo count($users);
+						?>
+					</h1>
 				</div>
 			</div>
 		</main>
